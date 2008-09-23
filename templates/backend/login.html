@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>The Oxford Student - Admin Interface</title>
+
+<style type="text/css">
+<!--
+
+#logonbox {
+	text-align: center;
+    background-color:black;
+    color:white;
+}
+
+#logonbox .button {
+	border-style: solid;
+	border-width: 2px;
+	font-weight: bold;
+	background-color: white;
+	color: back;
+}
+
+.hidden {
+	display: none;
+}
+
+.center {
+	text-align: center;
+}
+
+-->
+</style>
+<link rel="stylesheet" href="/css/shadowbox.css" />
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/shadowbox-jquery.js"></script>
+<script type="text/javascript" src="/js/shadowbox.js"></script>
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+<!--
+
+$(document).ready(function(){
+
+$("#magicbox").addClass("hidden");
+
+Shadowbox.init({
+    displayNav:     false,
+    keysClose:      [],
+    listenOverlay:  false,
+    onFinish:       function(){
+                        $("#shadowbox .firstfocus:first").focus();
+                    }
+});
+
+Shadowbox.open({
+    type:       "html",
+    content:    $("#magicbox").html(),
+    height:     $("#magicbox").height() + 20,
+    width:      400
+});
+
+});
+
+-->
+</script>
+
+<div id="magicbox">
+<div id="logonbox">
+<h1>Please Logon</h1>
+<form action="" method="post">
+<table align="center" cellpadding="7px">
+{% if badlogin %}
+{% ifequal badlogin 'password' %}
+<tr><td colspan="2">Incorrect username or password</td></tr>
+{% endifequal %}
+{% ifequal badlogin 'account' %}
+<tr><td colspan="2">Account disabled</td></tr>
+{% endifequal %}
+{% endif %}
+{% if username %}
+<tr><td>Username</td><td><input type="text" name="username" value="{{ username }}" /></td></tr>
+<tr><td>Password</td><td><input type="password" name="password" class="firstfocus" /></td></tr>
+{% else %}
+<tr><td>Username</td><td><input type="text" name="username" class="firstfocus" /></td></tr>
+<tr><td>Password</td><td><input type="password" name="password" /></td></tr>
+{% endif %}
+<tr><td colspan="2" class="center"><input type="submit" value="Logon" class="button" /><td></tr>
+</table>
+</form>
+</div>
+</div>
+
+</body>
+</html>
+

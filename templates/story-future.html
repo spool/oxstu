@@ -1,0 +1,30 @@
+<--{% extends "base_{{ section }}.html" %}-->
+
+{% block story-content %}
+<div id="story">
+    <div id="story-header">
+        <h2 id="story-headline">{{ story.headline }}</h2>
+        {% include "../widget/main-widget.html" %}
+        <div id="story-byline" class="byline"> 
+            {% for writer in story.writers %}
+            <div class="writer byline" id="{{ writer.user.username }}">
+                <span class="firstname">{{ writer.user.firstname|capfirst }}</span> 
+                <span class="lastname">{{ writer.user.lastname|capfirst }}</span>
+                and
+            </div>
+        </div>
+        <div id="story-date">{{ story.online_date }}</div>
+    </div>
+    <div id="story-container">
+        <div id="story-body">{{ story.published }}</div>
+        {% for widget in story.published.widgets %}
+        {# This is tricky. we get widget.widget 
+        Also how to do source order? Presumably based on layout... #}
+        <dl class="widget {{ story.slug }} {{ widget.widget.module }} 
+            {{ widget.location }}">
+            <dt class="title">{{ widget.widget.title }}</dt>
+            <dd>{{ widget.data }}</dd>
+        </dl>
+    </div>
+    <div id="story-footer">
+        <dl id="related-stories"

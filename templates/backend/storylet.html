@@ -1,0 +1,34 @@
+<!--- In this DIV tag the idea is that there are different classes for stories of different status e.g. awaiting  approval, past deadline can be styled differently --->
+
+<!--delete this later - just for testing -->
+<link rel="stylesheet" href="file:///home/nick/code/oxstu/static/css/backend.css" />
+
+<!-- Could someone who know the names of the statuses change the .storylet-<status> names in the css please. then it might look a bit nicer -->
+
+<div class="storylet-{% story.status %}" id="storyid">
+   
+  <h3>{% story.headline  %}</h3>
+  <a href="admin/story/storyid/edit" class="storylet-edit-link" id="storyid-edit-link">Edit Story</a>  
+  <table id="storyid-info" class="storylet-info">
+     
+    <tr><th>Status :</th> <td>{% story.status %}</td></tr>
+    <tr><th>Issue :</th> <td>{% story.issue %}</td></tr>
+    
+    {% if offers %} <tr><th>Writer Offers</th><td>
+      
+      <table id="storyid-offers" class="storylet-offers">
+        {% for offer in offers %}
+	  <tr><th>{% offer.writername %}</th><td>{% offer.reason %}</td><td><a href="" class="storylet-offer-assign">Assign</a></td></tr>
+        {% endfor %}
+      </table>
+      
+
+    </td></tr>{% endif % }
+
+    <tr><th>Deadline :</th><td>{% story.deadline %}</td></tr>
+    
+    <!-- So here I'm hiding things that shouldn't be there for writers by seing if iseditor is set. Possibly there is a more sensible way of deoing this -->
+    {% if iseditor %}<tr><th>Writer :</th><td>{% story.writer %}</td></tr>{% endif %}
+  </table>
+</div>
+

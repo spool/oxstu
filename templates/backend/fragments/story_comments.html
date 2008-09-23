@@ -1,0 +1,13 @@
+{% load humanize %}
+{% load oxford %}
+{% for comment in comments %}
+    <dt>{{ comment.author.friendly_name }}
+        <span class="comment-time">
+            {{ comment.created|oxnaturalday }} at {{ comment.created|time:"G:i:s" }}
+        </span>
+    </dt>
+    <dd>
+        {{ comment.text }}
+    </dd>
+{% endfor %}
+

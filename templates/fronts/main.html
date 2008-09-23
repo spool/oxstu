@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load typogrify %}
+{% load byline %}
+{% load sidebar %}
+{% load oxstu_humanise %}
+
+{% block body_class %}main-front front{% endblock %}
+
+{% block header_sections %}
+    <ul class="links">
+        <li><a href="/print/">Download Print Edition</a></li>
+        <li><a href="/about/">About the OxStu</a></li>
+        <li><a href="/joinus/">Getting Involves</a></li>
+        <li><a href="#">Story Archives</a></li>
+        <li><a href="/feed/">RSS Feed</a></li>
+        <li><a href="/contact/">Contact Us</a></li>
+    </ul>
+    <a href="/blog/dev/" class="focus">
+        <h2>Archive-tastic &raquo;</h2>
+        <p>
+            Welcome to the new OxStu archive site. We'll be launching with current
+            news in Michaelmas, but for now have a look round our archive.
+        </p>
+    </a>
+{% endblock %}
+
+{% block content %}
+    <div id="front-page">
+        
+        <div id="main-block">
+            <a href="/news/">
+                <h1>News<small>More stories &raquo;</small></h1>
+            </a>
+            
+                <div id="main-story" style="background-image:url(/widget/{{ main_story.published.thumbnail_widget.id }}/500/200/1/)">
+                    <div class="meta">
+                        <a href="{{ main_story.get_absolute_url }}">
+                            <h2>{{ main_story.published.headline|typogrify|safe }} &raquo;</h2>
+                        </a>
+                        <a href="{{ main_story.get_absolute_url }}">
+                            <h3>{{ main_story.published.synopsis|typogrify|safe }}</h3>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        
+        <dl id="section-stories">
+            {% for section, stories in secstories %}
+                <dt class="{{ section.slug }}">
+                    <a href="{{ section.get_absolute_url }}" style="color:#{{ section.color }};">
+                        {{ section.title }}
+                    </a>
+                </dt>
+                {% for story in stories %}
+                    <dd><a href="{{ story.get_absolute_url }}">{{ story.get_headline }}</a></dd>
+                {% endfor %}
+            {% endfor %}
+        </dl>
+        
+        <hr />
+        
+        <div class="stories">
+            {% for story in small_features %}
+                {{ story }}
+            {% endfor %}
+        </div>
+        
+        <div class="features">
+            {% for story in large_features %}
+                {{ story }}
+            {% endfor %}
+        </div>
+        
+        <hr />
+    </div>
+{% endblock %}

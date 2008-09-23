@@ -1,0 +1,12 @@
+{% if page.has_other_pages %}
+    {% if page.has_next %}
+    <a href="{{ base_url }}?page={{ page.next_page_number }}">Next</a>
+    {% endif %} 
+    {% for number in page.page_range %} 
+        {% if not number %}&#8230;
+        {% else %}
+        <a class="paginate {% ifequal number page.number %}current{% endifequal %}" 
+            href="{{ base_url }}?page={{ number }}">{{ number }}</a>
+        {% endif %} 
+    {% endfor %} 
+{% endif %}

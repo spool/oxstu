@@ -1,0 +1,10 @@
+{% load typogrify %}
+
+        <div class="post">
+            <a href="{{ post.get_absolute_url }}"><h2>{{ post.title|typogrify|safe }}</h2></a>
+            <div class="meta">
+                <span class="author">{{ post.author.user.get_full_name }}</span>, on
+                <span class="date">{{ post.posted|date:"Y/m/d" }}</span>
+            </div>
+            {{ post.html|safe }}
+        </div>

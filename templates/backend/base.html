@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>The Oxford Student - Admin Interface</title>
+
+    <link rel="stylesheet" href="/css/backend.css" />
+    <link rel="stylesheet" href="/css/shadowbox.css" />
+    <link rel="stylesheet" href="/css/ui.datepicker.css" />
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/shadowbox.js"></script>
+    <script type="text/javascript" src="/js/ui.datepicker.js"></script>
+    <script type="text/javascript">
+    <!--
+    $(document).ready( function(){
+        var firstfocus = $("#focusme");
+        if (firstfocus) firstfocus.focus();
+        Shadowbox.init({
+            onClose : function(){
+                // Update message queue
+                $("#messages").load("/admin/frag/messages/");
+            }
+        });
+    });
+    -->
+    </script>
+</head>
+
+<body>
+
+<div id="header">
+
+	<div id="user-tools">
+		Welcome, <strong>{{ user.username }}</strong>.
+		<a href="/admin/pl/change_password/" rel="pagelet;height=400;width=550">Change password</a> / <a href="/admin/logout/">Logout</a>
+	</div>
+
+	<a href="/admin/"><img src="/images/backend/banner.jpg"></a>
+</div>
+
+<div id="content">
+
+    <div id="sidebar">
+        {% block sidebar %}
+        {% endblock %}
+    </div>
+    
+    <div id="main">
+    
+	    <h2>{% block title %}{% endblock %}</h2>
+	    
+	    <div id="messages">
+            {% include "backend/fragments/new_messages.html" %}
+	    </div>
+
+	    {% block content %}
+	    {% endblock %}
+	
+	</div>
+
+	<div id="footer">
+        Copyright &copy; The Oxford Student 2008
+	</div>
+	
+</div>
+
+</body>
+</html>
+

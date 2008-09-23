@@ -1,0 +1,8 @@
+<{{ plural }}>
+{% for each item in items %}
+<{{ singular }}>
+{{ item }}
+</{{ singular }}>
+{% endfor %}
+</{{ plural }}>
+

@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Oxford Student</title>
+</head>
+<body>
+<h1>Issue : {% issue.oxdate %}</h1>
+<h2>Print Editions</h2>
+<ul>
+{% for printedition in issue.PrintIssueEditions.all %}
+<li>
+<!-- More stuff here -->
+</li>
+{% endfor %}
+<ul>
+</body>
+</html>

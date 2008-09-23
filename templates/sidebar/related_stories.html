@@ -1,0 +1,14 @@
+{% load typogrify %}
+
+{% if story_list %}
+    <div class="sidebar related">
+            <h4>Related Stories</h4>
+            <ul>
+                {% for story in story_list %}
+                <li><a href="{{ story.get_absolute_url }}">
+                    {{ story.published.headline|typogrify|safe }}
+                </a></li>
+                {% endfor %}
+            </ul>
+    </div>
+{% endif %}

@@ -1,0 +1,21 @@
+{% load webdesign %}
+
+<div id="story">
+    <div id="story-header">
+        <h2 id="story-headline">Lorem ipsum dolor sit amet&nbsp;consectetur</h2>
+        <div id="story-date">March 14, 2008</div>
+        <div id="story-byline" class="byline"> 
+            by
+            <span class="writer byline" id="unique-username">
+                <span class="firstname">George Bernard</span> 
+                <span class="lastname">Shaw</span>
+            </span>
+            and
+            <span class="writer byline" id="unique-username">
+                <span class="firstname">Oscar</span> 
+                <span class="lastname">Wilde</span>
+            </span>
+        </div>
+    </div>
+    <div id="story-body">{% lorem 7 p %}</div>
+</div>

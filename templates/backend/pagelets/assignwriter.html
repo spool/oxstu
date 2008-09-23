@@ -1,0 +1,23 @@
+{% extends "backend/pagelets/base.html" %}
+
+{% block title %}
+Assign Writer to Story
+{% endblock %}
+
+{% block content %}
+
+<!-- They might want to add multiple writers. So there is one button that says "Assign and finish assigning" and one that is like "Assign some more". If the eadline has already been set, don't give them the form to do this as they probably won't want to change it, and if they do that can easily be done from the dashboard -->
+	
+<p>Assigning story {% story.outline_title %} to {% author.name %} </p> node
+
+<!---when sufficient stylesheets and js is attached, django magic will happen and a calendar will appear for the deadline field--->
+<!--- See http://groups.google.com/group/pythonireland/browse_thread/thread/6b144596baad74b2 -->
+{% if nodeadlineyet %} <label for="deadline-date">Deadline</label><input type="text" class="vDateField">{% endif %}
+
+<input type="submit" value="Assign and assign another" name="assignanother"  />
+<input type="submit" value="Assign and finished assigning" name="finishedassigning" />
+
+
+{% endfor %}
+
+{% endblock %}

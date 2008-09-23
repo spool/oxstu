@@ -1,0 +1,32 @@
+{% extends "blueprint_branch/base.html" %}
+{% load typogrify %}
+{% load byline %}
+{% load sidebar %}
+{% load webdesign %}
+{% load oxford %}
+
+{% block content %}
+<div id="story" class="span-17">
+    <div id="story-headline span-17">
+        <h1 id="story-headline">{{ story.published.headline|typogrify|safe }}</h1>
+    </div>
+    <div id="story-byline" class="span-13">
+        <div id="story-date">Week 4, Trinity 2008</div>
+        <div id="story-byline" class="byline"> 
+            {% if story.writers.all %}
+                by
+                {% attribution_list story.writers.all %}
+            {% endif %}
+        </div>
+    </div>
+    <div id="story-body" class="span-13">{{ story.published.text|safe }}</div>
+    <div id="story-sidebar" class="span-4 last">
+        {% issue_stories story.issue %}
+        {% related_stories story %}
+    </div>
+</div>
+<div id="sidebar" class="span-5 last">
+    <h3>Sidebar Heading</h3>
+    {% lorem 3 p %}
+</div>
+{% endblock %}

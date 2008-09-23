@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load typogrify %}
+{% load byline %}
+{% load sidebar %}
+{% load oxstu_humanise %}
+
+{% block content %}
+    <div id="breadcrumbs">
+        {% breadcrumbs story.section story.oxdate.year story.oxdate.term story.oxdate.week %}
+    </div>
+    <div id="story">
+        <div id="story-header">
+            <h2 id="story-headline">{{ story.headline|typogrify|safe }}</h2>
+            <div id="story-synopsis">{{ story.synopsis|typogrify|safe }}</div>
+            <div id="story-meta" class="meta story">
+                {% if story.writers.all %}
+                    By
+                    {% attribution_list story.writers.all %}
+                {% endif %} on 
+                <span class="date">{{ story.online_date|date:"D, d M Y" }}</span>
+            </div>
+        </div>
+        <div id="story-widgets-top">
+            {#{% for widget in story.widgets_top %}
+                {{ widget.instance.as_html|safe }}
+                {% endfor %}#}
+        </div>
+        {#<div id="story-body">{% story_with_widgets story.published %}</div>#}
+        <div id="story-body">{{ story.text }}</div>
+        {#<div id="story-widgets-bottom">
+            {% for widget in story.widgets_bottom %}
+                {{ widget.instance.as_html|safe }}
+            {% endfor %}
+        </div>#}
+    </div>
+    <div id="sidebar">
+        {% issue_stories story.issue %}
+        {% related_stories story %}
+    </div>
+{% endblock %}

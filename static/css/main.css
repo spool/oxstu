@@ -1,0 +1,436 @@
+/* OxStu CSS */
+
+/* Reset. From YUI. Contains no mayflies. */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+        margin:0;
+        padding:0;
+}
+table {
+        border-collapse:collapse;
+        border-spacing:0;
+}
+fieldset,img { 
+        border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+        font-style:normal;
+        font-weight:normal;
+}
+ol,ul {
+        list-style:none;
+}
+caption,th {
+        text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+        font-size:100%;
+        font-weight:normal;
+}
+q:before,q:after {
+        content:'';
+}
+abbr,acronym { border:0;
+}
+
+/* Basic page layout */
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: url(../images/lines.png) repeat-x 0 80px;
+}
+    body.large-masthead {
+        background-image: url(../images/lines_large.png);
+    }
+
+a {
+    text-decoration: none;
+}
+
+#container {
+    width: 790px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#header-sections {
+    border-bottom: 1px solid #1f388d;
+    padding: 10px 10px;
+    height: 60px;
+}
+    #header-sections ul {
+        overflow: hidden;
+    }
+        #header-sections li {
+            float: left;
+            width: 140px;
+            margin: 0 10px 0 0;
+        }
+        #header-sections li.debate {
+            position: relative; /* Make text wrap nicer */
+            left: -10px;
+        }
+            #header-sections li a {
+                color: #aaaaaa;
+                font-size: 90%;
+                line-height: 1em;
+            }
+                #header-sections li a b {
+                    display: block;
+                    color: #6f799c;
+                    font-size: 14px;
+                    margin-bottom: 0.4em;
+                }
+                #header-sections li.debate a b {
+                    color: #4e9aaf;
+                }
+                #header-sections li.features a b {
+                    color: #4eb172;
+                }
+                #header-sections li.arts a b {
+                    color: #cc72a8;
+                }
+                #header-sections li.sport a b {
+                    color: #b54e5f;
+                }
+    #header-sections ul.links {
+        width: 325px;
+        float: right;
+        margin-left: 20px;
+    }
+        #header-sections ul.links li {
+            float: right;
+            width: 150px;
+        }
+    #header-sections a.focus {
+        color: #aaa;
+    }
+        #header-sections a.focus h2 {
+            font-size: 110%;
+            font-weight: normal;
+            color: #555753;
+        }
+        #header-sections a.focus p {
+            font-size: 80%;
+            line-height: 1.3em;
+        }
+
+#header-masthead {
+    border-bottom: 1px solid #1f388d;
+    padding: 10px 10px;
+    overflow: hidden;
+}
+    #masthead-small {
+        float: left;
+    }
+    #masthead-large {
+        margin: 0 0 0 5px;
+    }
+    #masthead-small-date {
+        float: right;
+/*         color: #575855; */
+        color: #fff;
+        font-family: Georgia, serif;
+    }
+    #masthead-large-date {
+        float: right;
+/*         color: #575855; */
+        color: #fff;
+        font-family: Georgia, serif;
+        margin: 10px 10px 0 0;
+        font-size: 110%;
+    }
+
+#content {
+    overflow: hidden;
+}
+
+hr {
+    clear: both;
+    border: 0;
+    border-top: 1px solid #ccc;
+    color: #fff;
+}
+
+#breadcrumbs {
+    float: left;
+    width: 567px;
+    padding: 10px 10px 0 13px;
+    color: #aaa;
+}
+    #breadcrumbs a {
+        color: #467;
+    }
+
+.front #main-block {
+    float: left;
+    padding-left: 15px;
+}
+    .front #main-block h1 {
+        font-weight: normal;
+        font-size: 160%;
+        color: #1f388d;
+        margin: 10px 0 0 0;
+    }
+    .arts-front #main-block h1 {
+        color: #b63481;
+    }
+        .front #main-block h1 small {
+            font-size: 50%;
+            color: #aaa;
+            margin-left: 10px;
+        }
+
+#main-story {
+    float: left;
+    clear: left;
+    width: 500px;
+    height: 200px;
+    background: #000;
+    margin: 5px 0 20px 0;
+    position: relative;
+}
+    #main-story .meta {
+        background: transparent url(/images/fill_white_80.png);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+        #main-story .meta h2 {
+            font-weight: bold;
+            margin: 5px 10px;
+            color: #333;
+        }
+            #main-story .meta h2 a {
+                color: #333;
+            }
+        #main-story .meta h3 {
+            margin: 3px 10px 7px 10px;
+            color: #555;
+            font-size: 80%;
+        }
+            #main-story .meta h3 a {
+                color: #555;
+            }
+
+
+#section-stories {
+    float: right;
+    width: 250px;
+    margin: 20px 0 0 10px;
+}
+    #section-stories dt {
+        font-weight: normal;
+        margin: 0 0 2px 0;
+        font-size: 130%;
+    }
+    #section-stories dd {
+        font-size: 90%;
+        color: #555;
+        margin: 0 0 10px 0;
+    }
+        #section-stories dd a {
+            color: #555;
+        }
+
+#side-stories {
+    float: right;
+    width: 250px;
+    margin: 20px 0 0 10px;
+}
+    #side-stories dt {
+        font-weight: bold;
+        margin: 0 0 2px 0;
+        font-size: 90%;
+    }
+        #side-stories dt a {
+            color: #333;
+        }
+    #side-stories dd {
+        font-size: 80%;
+        color: #555;
+        margin: 0 0 10px 0;
+    }
+        #side-stories dd a {
+            color: #555;
+        }
+
+
+#sub-stories {
+    float: left;
+    width: 450px;
+    margin: 20px 0 0 10px;
+}
+    #sub-stories dt {
+        font-weight: bold;
+        margin: 0 0 2px 0;
+        font-size: 90%;
+        clear: left;
+    }
+        #sub-stories dt h5 {
+            color: #333;
+            margin-left: 74px;
+            font-weight: bold;
+        }
+        #sub-stories dt .thumbnail {
+            float: left;
+        }
+    #sub-stories dd {
+        font-size: 80%;
+        color: #555;
+        margin: 0 0 10px 0;
+        margin-left: 74px;
+    }
+        #sub-stories dd a {
+            color: #555;
+        }
+
+
+#story {
+    float: left;
+    width: 570px;
+    padding: 0 10px 0 10px;
+}
+    #story-header {
+        margin: 5px 0 10px 0;
+    }
+        #story-headline {
+            font-size: 250%;
+            font-family: Georgia, serif;
+            color: #2e3436;
+            margin: 0 0 10px 0;
+        }
+        #story-synopsis {
+            color: #555753;
+            font-size: 85%;
+            padding: 0 0 10px 0;
+            border-bottom: 1px solid #747673;
+        }
+        #story-meta {
+            margin-top: 10px;
+            font-size: 80%;
+            color: #999;
+        }
+            #story-meta a {
+                color: #888;
+            }
+    #story-body {
+    
+    }
+        #story-body p {
+            line-height: 1.4em;
+            font-size: 95%;
+            margin: 1em 0;
+            color: #222;
+        }
+        #story-body .widgets-left {
+            float: left;
+            margin: 1em;
+            clear: left;
+        }
+
+#sidebar {
+    float: right;
+    width: 190px;
+}
+    #sidebar .entry {
+        border-bottom: 1px solid #888;
+        padding: 10px 0;
+    }
+        #sidebar .entry h2 {
+            font-weight: bold;
+            color: #2e3436;
+            margin: 0 0 3px 0;
+        }
+        #sidebar ul.stories {
+        }
+            #sidebar ul.stories li {
+                padding: 2px 0;
+            }
+                #sidebar ul.stories li a {
+                    color: #555753;
+                    font-size: 80%;
+                }
+
+#blog {
+    float: left;
+    width: 570px;
+    padding: 0 10px 0 10px;
+}
+
+#story-list {
+    float: left;
+    width: 570px;
+    padding: 0 10px 0 10px;
+}
+    .story.list-form {
+        margin: 0 0 1em 0;
+    }
+    #story-list h2{
+        font-family: Georgia, serif;
+        font-size: 160%;
+    }
+
+    #story-list .meta {
+        color: #999;
+        font-size: 80%;
+    }
+
+    #story-list .meta a{
+        color: #666;
+    }
+
+
+
+
+#blog h1 {
+    font-size: 250%;
+    font-family: Georgia, serif;
+    color: #2e3436;
+    margin: 15px 0 0 0;
+}
+#blog .nothing {
+    color: #888;
+    padding: 1em;
+}
+#blog .post {
+    margin: 20px 0 30px 0;
+}
+    #blog h2 {
+        font-size: 150%;
+        font-family: Georgia, serif;
+        color: #6e6466;
+        margin: 15px 0 0 0;
+    }
+    #blog .post p {
+        margin: 0.5em 0 1em 0;
+        line-height: 1.40em;
+        font-size: 90%;
+        color: #222;
+    }
+    #blog .post .meta {
+        font-size: 85%;
+        margin: 2px 0 10px 0;
+        color: #777;
+    }
+
+#footer {
+color: #888;
+font-size: 90%;
+padding: 30px 20px 10px 20px;
+overflow: hidden;
+}
+#footer .copyright {
+    float: left;
+}
+#footer ul {
+    float: right;
+}
+    #footer ul li {
+        float: left;
+        margin-left: 20px;
+    }
+        #footer ul li a {
+            color: #888;
+        }

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load sidebar %}
+{% load oxstu_humanise %}
+
+{% block content %}
+<div id="section">
+    <div id="section-header">
+        <h2 id="section-masthead">
+            <span class="section-name">{{ section.name }}</span>
+            <span class="date">{{ oxdate_tuple|oxstu_date|title }}</span>
+        </h2>
+    </div>
+    <div id="section-body">
+        {% include "drilldowns/story_summary_list.html" %}
+    </div>
+</div>
+
+{% endblock %}

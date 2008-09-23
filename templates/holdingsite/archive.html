@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load pdf %}
+
+{% block content %}
+    <div id="archive-list">
+        {% for issue in issues %}
+            {% if issue.display %}
+                <div class="issue-list">
+                    <dl>
+                        <dt>
+                        {% if issue.main_download.display %}
+                        <a href="{{ issue.main_download.get_file_url }}">
+                            {{ issue.oxdate.term|title }} Week {{ issue.oxdate.week }}, {{ issue.date.year }}
+                            <span class="rollover">&laquo; Dowload the whole issue</span>
+                        </a>
+                        {% else %}
+                            {{ issue.oxdate.term|title }} Week {{ issue.oxdate.week }}, {{ issue.date.year }}
+                        {% endif %}
+                        </dt>
+                        {% for issue_section in issue.downloads %}
+                            {% if issue_section.display %}
+                                <dd class="{{ issue_section.section.slug }}">
+                                <a href="{{ issue_section.get_file_url }}">
+                                <img src="{{ issue_section.file|pdfthumbnail:"200x200" }}" alt="Week {{ issue.oxdate.week }} {{ issue_section.section }}" class="printpic {{ issue_section.section.slug }}" />
+                                </a></dd>
+                            {% endif %}
+                        {% endfor %}
+                    </dl>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% include "archive-link.html" %}
+{% endblock %}

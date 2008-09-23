@@ -1,0 +1,23 @@
+{% load typogrify %}
+{% load byline %}
+{% load oxstu_humanise %}
+
+{% if page %}
+    {% for story in page.object_list %}
+        <div class="{{ section.name }} story list-form {{ story.slug }}">
+            <h2 class="headline list_form {{ section.name }}">
+                <a href="{{ story.get_absolute_url }}">{{ story.published.headline }}</a>
+            </h2>
+            <div class="story meta byline list-form"> 
+                {% if story.writers.all %}
+                    by
+                    {% attribution_list story.writers.all %}
+                {% endif %} on
+                <span class="date">{{ story.online_date|date:"D, d M Y" }}</span>
+            </div>
+            <div class="story list-form synopsis">
+                {{ story.published.synopsis|safe }}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

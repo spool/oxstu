@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>{% block title %}{% endblock %} The Oxford Student</title>
+</head>
+
+{% load oxstu_humanise %}
+
+<body class="{% block body_class %}{% endblock %} {% if large_masthead %}large-masthead{% endif %}">
+    <div id="container">
+        <div id="header-sections">
+            {% block header_sections %}
+            <ul>
+                {% for section in sections %}
+                    <li class="{{ section.slug }}"><a href="{{ section.get_absolute_url }}"><b style="color: #{{ section.color }};">{{ section.title }}</b> {{ section.description }} &raquo;</a></li>
+                {% endfor %}
+            </ul>
+            {% endblock %}
+        </div>
+        <div id="header-masthead">
+            {% if large_masthead %}
+                <a href="/"><img src="/images/oxstu_large.png" id="masthead-large" /></a>
+                <span id="masthead-large-date">Monday, Week 9, TT 2009</span>
+            {% else %}
+                <a href="/"><img src="/images/oxstu_small.png" id="masthead-small" /></a>
+                <span id="masthead-small-date">Monday, Week 9, TT 2009</span>
+            {% endif %}
+        </div>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div id="footer">
+            <span class="copyright">&copy; Copyright The Oxford Student {% now "Y" %}</span>
+            <ul>
+                <li><a href="#">About the OxStu</a></li>
+                <li><a href="#">Archive</a></li>
+                <li><a href="#">Contact and Feedback</a></li>
+                <li><a href="#">RSS</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

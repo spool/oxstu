@@ -1,0 +1,46 @@
+#container {
+    border: 1px solid #bbb;
+}
+
+#section-header {
+    margin-left: 20px;
+}
+
+#section-header dl{
+    display: inline;
+}
+
+#header {
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    margin-top: 1.45em;
+    margin-bottom: 1.45em;
+}
+
+#mini-masthead {
+    float: left;
+}
+
+#breadcrumbs h2{
+    text-align: center;
+    display: inline;
+}
+
+.bread {
+    font-size: 200%;
+    margin: 0 1em 0 1em;
+}
+
+#content {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#byline-break {
+    margin-bottom: 0em;
+}
+
+#story-body {
+    margin-top: 1.45em;
+}
+

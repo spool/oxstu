@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<link rel="stylesheet" href="/css/pagelet.css" />
+<style type="text/css">
+#valign {
+	display: table-cell;
+	vertical-align: middle;
+    {% if pagelet_height %}
+    height:{{ pagelet_height }}px;
+    {% else %}
+	height:400px;
+    {% endif %}
+    {% if pagelet_width %}
+    width:{{ pagelet_width }}px;
+    {% else %}
+	width:550px;
+    {% endif %}
+}
+</style>
+<script type="text/javascript">
+<!--
+$(document).ready( function(){
+    var firstfocus = $("#focusme");
+    if (firstfocus) firstfocus.focus();
+});
+-->
+</script>
+</head>
+<body>
+<div id="valign">
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>

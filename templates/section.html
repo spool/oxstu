@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load typogrify %}
+{% load byline %}
+{% load sidebar %}
+{% load oxstu_humanise %}
+
+{% block content %}
+    <div id="front-page">
+        
+        <div id="main-story">
+            <div class="meta">
+                <h2>{{ main_story.published.headline|typogrify|safe }} &raquo;</h2>
+                <h3>{{ main_story.published.synopsis|typogrify|safe }}</h3>
+            </div>
+        </div>
+        
+        <dl id="side-stories">
+            {% for story in sidestories %}
+                <dt>
+                    <a href="{{ story.get_absolute_url }}">
+                        {{ story.published.headline|typogrify|safe }}
+                    </a>
+                </dt>
+                <dd>{{ story.published.synopsis|typogrify|safe }}</dd>
+            {% endfor %}
+        </dl>
+        
+        {% for story in stories %}
+            {{ story }}
+        {% endfor %}
+    </div>
+{% endblock %}

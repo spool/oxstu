@@ -1,0 +1,17 @@
+{% extends "backend/base.html" %}
+
+{% block title %}
+Editor's Dashboard
+{% endblock %}
+
+{% block content %}
+
+{# Cycle through the stories passed to me by Josh. Each storylet is then handled by the storylet template #}
+
+{% for story in storieslist %}
+
+  {% include storylet.html %}
+
+{% endfor %}
+
+{% endblock %}

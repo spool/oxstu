@@ -1,0 +1,36 @@
+{% extends "backend/base.html" %}
+{% load humanize %}
+
+{% block title %}
+Revision History for {{ story.outline_title }}
+{% endblock %}
+
+{% block content %}
+
+{% if storytexts %}
+<table>
+
+<tr>
+<th>Revision</th>
+<th>Revised By</th>
+<th>Updated On</th>
+</tr>
+
+{% for storytext in storytexts %}
+<tr>
+<td>{{ storytext.revision }}</td>
+<td>{{ storytext.author.friendly_name }}</td>
+<td>{{ storytext.created|naturalday }}</td>
+<td>
+<a href="/admin/story/{{ story.id }}/revisions/{{ storytext.revision }}/">
+view
+</a>
+</tr>
+{% endfor %}
+
+<table>
+{% else %}
+This story has has not had any revisions so far.
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    background: #202020;
+    font-family: "Helvetica Neue", "Lucida Grande", "Bitstream Vera Sans", Verdana, Helvetica, Arial, sans-serif; 
+    color: white;
+    height: 100%;
+    font-size: 110%;
+}
+
+a img {
+    border: 0;
+}
+
+#container {
+	/*sticky footer stuff*/
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+    margin-bottom: -2em;
+}
+
+#logo {
+    text-align: center;
+    margin: 1em 0 1em 0;
+}
+
+#logo img{
+    border: none;
+}
+
+#logo a{
+    border: none;
+}
+
+#current-issue {
+    width: 640px;
+    position: absolute;
+    left: 50%;
+    top: 128px;
+	margin: 0px 0px 0 -320px;
+}
+
+.sticky {
+	height: 1em;
+}
+
+#message {
+    /*left: 50%;*/
+    margin-left: 35px;
+    margin-right: 10px;
+    line-height: 1.4em;
+    color: #55aa22;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0px;
+    width: 850px;
+    left: 50%;
+    margin-left: -425px;
+    text-align: center;
+    font-size: 80%;
+}
+
+#frontpage {
+	float: left;
+	margin: 0px 0px 0px 30px;
+	padding: 0;
+}
+
+#print {
+	float: right;
+    padding: 50px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	width: 260px;
+}
+
+#print dt{
+    margin-bottom: .2em;
+}
+
+#print dd{
+    font-family: Constantia, "Palatino Linotype", Palatino, Georgia, "Times New Roman", Times, serif; 
+    font-size: 120%;
+    margin-left: 1em;
+}
+
+#print a{
+    padding: .1em .2em .1em .2em;
+}
+
+
+#archive-link {
+    position: absolute;
+    right: 4%;
+    top: 83%;
+    font-size: 90%;
+}
+
+#validators {
+    bottom: 0;
+    margin-bottom: 3px;
+    font-size: 75%;
+    font-family: Constantia, "Palatino Linotype", Palatino, Georgia, "Times New Roman", Times, serif; 
+}
+
+#oxstu {
+    font-family: Constantia, "Palatino Linotype", Palatino, Georgia, "Times New Roman", Times, serif; 
+    font-size: 1.2em;
+    color: #fa9;
+}
+
+#arrows {
+    font-size: 150%;
+}
+
+a {
+    text-decoration: none;
+    font-weight: normal;
+    color: #9af;
+}
+
+a:visited {
+    color: #fa9;
+}
+
+a:hover {
+    border-bottom: 2px solid #fa9;
+}
+
+abbr {
+letter-spacing: .05em;
+}
+
+.sections {
+    margin-top: .2em;
+}
+
+#news a{ color: #1f388d; }
+
+#news a:hover, #news a:visited{ 
+    color: white; 
+    background: #1f388d; 
+    border: none;
+}
+
+#features a{ color: #008f34; }
+#features a:hover, #features a:visited{ 
+    color: white; 
+    background: #008f34; 
+    border: none;
+}
+#arts a{ color: #b63481; }
+#arts a:hover, #arts a:visited{ 
+    color: white; 
+    background: #b63481; 
+    border: none;
+}
+#sport a{ color: #950019; }
+#sport a:hover, #sport a:visited{ 
+    color: white; 
+    background: #950019; 
+    border: none;
+}
+#debate a{ color: #006d8c; }
+#debate a:hover, #debate a:visited{ 
+    color: white; 
+    background: #006d8c; 
+    border: none;
+}
+
+/* Archive view */
+
+#archive-list {
+    width: 900px;
+    position: absolute;
+    left: 50%;
+    top: 128px;
+	margin: 0px 0px 0 -450px;
+}
+
+.issue-list {
+    margin: 10px;
+    overflow: hidden;
+}
+
+.issue-list dt {
+    text-align: left;
+    margin: .3em 0;
+    overflow: hidden;
+    background: #202020;
+}
+
+.issue-list a{
+    color: #eee;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.rollover {
+    display: none;
+}
+
+.issue-list .rollover {
+    text-decoration: none;
+    color: #eee;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+.issue-list a:hover span{
+    display: inline;
+}
+
+.issue-list dd {
+    display: inline;
+    float: left;
+    margin: 3px;
+}
+
+.news a:hover, .news a:visited {
+    border-bottom: 2px solid #1f388d;
+}
+.debate a:hover, .debate a:visited {
+    border-bottom: 2px solid #006d8c;
+}
+.features a:hover, .features a:visited {
+    border-bottom: 2px solid #008f34;
+}
+.arts a:hover, .arts a:visited {
+    border-bottom: 2px solid #b63481;
+}
+.sport a:hover, .sport a:visited {
+    border-bottom: 2px solid #950019;
+}
+
+/* Images of the paper PDFs need fake guttering */
+img.printpic {
+    border: 0px solid white;
+    border-width: 0 4px 4px 0;
+}
+
+img.printpic.sport {
+    border-width: 0 0 4px 4px;
+}

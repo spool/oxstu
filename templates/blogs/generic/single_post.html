@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load typogrify %}
+
+{% block title %}{{ object.title }} - {{ blog.title }} - {% endblock %}
+
+{% block content %}
+
+<div id="blog">
+    
+    <a href="{{ blog.get_absolute_url }}"><h1>{{ blog.title|typogrify|safe }}</h1></a>
+    
+    <div id="posts">
+        {% with object as post %}
+            {% include "blogs/generic/post.html" %}
+        {% endwith %}
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -1,2 +1,3 @@
 =Refactoring=
 Take all the views and urls out of oxnews and put them in the apps they belong to.
+Refactor templates/urls to avoid namespace collision with pinax.

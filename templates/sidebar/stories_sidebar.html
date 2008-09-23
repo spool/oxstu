@@ -1,0 +1,14 @@
+{% load typogrify %}
+
+{% if story_list %}
+    <div class="{{ css_classes }} entry">
+        <h2>{{ header|safe }}</h2>
+        <ul class="stories">
+            {% for story in story_list %}
+            <li><a href="{{ story.get_absolute_url }}">
+                {{ story.published.headline|typogrify|safe }}
+            </a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

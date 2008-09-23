@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load oxstu_humanise %}
+{% load sidebar %}
+
+{% block content %}
+{% breadcrumbs section year term week %}
+<div id="story-list" class="story-list drilldowns">
+    {% include "drilldowns/story_summary_list.html" %}
+    {% include "drilldowns/paginator.html" %}
+</div>
+<div id="sidebar">
+    {% top_stories %} 
+</div>
+{% endblock %}

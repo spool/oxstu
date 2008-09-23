@@ -1,0 +1,12 @@
+<h2>Messages</h2>
+{% if messages %}
+<ul>
+{% for message in messages %}
+<li>{{ message }}</li>
+{% endfor %}
+</ul>
+{% else %}
+No new messages. 
+This is just for debugging, in reality I'd be invisible...
+{% endif %}
+

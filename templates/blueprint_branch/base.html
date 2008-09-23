@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>The Oxford Student</title>
+    <link rel="stylesheet" href="/css/blueprint/main.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print" /> 
+    <!--[if IE]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+</head>
+
+<body>
+    <div id="container" class="container ">
+        {% include "blueprint_branch/section_header.html" %}
+        {% block header %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+        <div id="footer" class="span-24">
+            &copy; Copyright The Oxford Student {% now "Y" %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "backend/base.html" %}
+
+{% block title %}
+Writer's Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h2>Your Current Stories</h2>
+
+{# Cycle through the stories passed to me by Josh. Each storylet is then handled by the storylet template #}
+<div id="writer-currentstorieslist">
+	{% for story in storieslist %}
+
+	  {% include storylet.html %}
+
+	{% endfor %}
+</div>
+
+<h2>Unassigned Stories</h2>
+
+<div id="writer-unassignedstorieslist">
+	{% for story in unassignedstories %}	  
+	  <div id="unassignedstory-{{ story.id }}" class="unassignedstory-info">
+	      <h3>{{ story.outline_title }}</h3>
+	      <!-- This is pretty unsemantic. Deal with it. -->
+	      <p class="unassignedstory-outline">{{ story.outline_text }}</p>
+	      <p class="unassignedstory-wordcount"><span class="wordcount-label">Wordcount:</span> {{ story.wordcount ]}</p>
+	      <a href="" id="offerlink-{{ story.id }}" class="offerlink">Make Offer</a>
+	  </div>
+	{% endfor %}
+</div>
+
+{% endblock %}
+

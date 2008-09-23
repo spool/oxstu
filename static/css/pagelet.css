@@ -1,0 +1,23 @@
+body {
+	font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif; 
+	text-align: center;
+    background-color:black;
+    color:white;
+}
+
+.button {
+	border-style: solid;
+	border-width: 2px;
+	font-weight: bold;
+	background-color: white;
+	color: back;
+}
+
+.hidden {
+	display: none;
+}
+
+.center {
+	text-align: center;
+}
+

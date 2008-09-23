@@ -1,0 +1,158 @@
+{% extends "backend/base.html" %}
+{% load byline %}
+{% load humanize %}
+
+
+{% block title %}
+    Editing {{ story.outline_title }}
+{% endblock %}
+
+{% block content %}		
+    <form name="story-edit" method="post" id="story-edit">
+    
+        <label for="headline">Headline:</label>
+        <input type="text" name="headline" id="headline" class="input" value="{{ storytext.headline }}"><br>
+
+        <label for="synopsis">Synopsis:</label>
+        <textarea rows="5" name="synopsis" id="synopsis" class="input">{{ storytext.synopsis }}</textarea><br>
+
+        <label for="story-text">Story:</label>
+        <textarea rows="20" name="text" id="story-text" class="input">{{ storytext.text }}</textarea>
+
+        <input type="submit" value="Save">
+        <input type="reset" value="Abandon changes">
+        
+    </form>
+{% endblock %}
+
+
+
+
+
+{% block sidebar %}
+
+    <script type="text/javascript" src="/js/metadata.js"></script>
+    <script type="text/javascript">
+    <!--
+    
+    $(document).ready( function() {
+        $('#deadline-edit').datepicker({
+            mandatory: true,
+            dateFromat: "dd/mm/yyyy",
+        });
+
+    // show edit story because javascript is enabled
+    $("#new_comment").removeClass('hidden');
+
+    {% if user.is_editor or user.is_subeditor %}
+        // show edit thingys because we're an editor
+        $("#description-edit-link").removeClass('hidden');
+        $("#deadline-edit-link").removeClass('hidden');
+        $("#wordcount-edit-link").removeClass('hidden');
+        $("#section-edit-link").removeClass('hidden');
+    {% endif %}
+
+    });
+
+    -->
+    </script>
+    
+    <a href="/admin/" id="returndashboard">Return to Dashboard</a>
+	
+	<div id="panel">
+	<h3>Story Info</h3>
+		
+	<dl id="storyinfo">	
+	
+        {% if storytext %}
+		<dt>Revision</dt>
+		<dd>
+        {{ storytext.revision }}
+        (<a href="/admin/story/{{ story.id }}/revisions/">view all</a>)
+        </dd>
+		
+        <dt>
+		    <label>Last Updated</label>
+		</dt>
+		<dd>
+        on {{ storytext.created|naturalday }}<br>
+        by {{ storytext.author.friendly_name }}
+        </dd>
+
+        {% endif %}
+
+		<dt>
+		    <label for="description-edit">Description</label>
+		    <a onclick="edit('description');" id="description-edit-link" class="hidden editlink">edit</a>
+		    <a onclick="save('description');" id="description-cancel-link" class="hidden editlink">cancel</a>
+		</dt>
+		<dd id="description-label">{{ story.outline_description }}</dd>
+		<dd>
+			<input type="text" id="description-edit" class="hidden" onkeypress="if (event && event.which == 13) save('description');">
+		</dd>
+			
+		<dt>
+		    <label for="deadline-edit">Deadline</label>
+		    <a onclick="edit('deadline');" id="deadline-edit-link" class="hidden editlink">edit</a>
+		    <a onclick="save('deadline');" id="deadline-cancel-link" class="hidden editlink">cancel</a>
+		</dt>
+		<dd id="deadline-label">{{ story.deadline }}</dd>
+		<dd>
+			<input type="text" id="deadline-edit" class="hidden" onkeypress="if (event && event.which == 13) save('deadline');">
+		</dd>
+		
+		<dt>
+		    <label for="wordcount-edit">Target wordcount</label>
+		    <a onclick="edit('wordcount');" id="wordcount-edit-link" class="hidden editlink">edit</a>
+		    <a onclick="save('wordcount');" id="wordcount-cancel-link" class="hidden editlink">cancel</a>
+		</dt>
+		<dd id="wordcount-label">{{ story.wordcount }}</dd>
+		<dd>
+			<input type="text" id="wordcount-edit" class="hidden" onkeypress="if (event && event.which == 13) save('wordcount');">
+		</dd>
+
+        {% if story.writers.all %} 
+		<dt>
+		    <label for="writer-edit">Writers</label>
+		</dt>
+		<dd id="writer-label">
+            {% attribution_list story.writers.all %}
+        </dd>
+        {% endif %}
+		
+		<dt>
+		    <label for="section-edit">Section</label>
+		    <a onclick="edit('section');" id="section-edit-link" class="hidden editlink">edit</a>
+		    <a onclick="save('section');" id="section-cancel-link" class="hidden editlink">cancel</a>
+		</dt>
+		<dd id="section-label">{{ story.section.partname }}</dd>
+		<dd>
+			<input type="text" id="section-edit" class="hidden" onkeypress="if (event && event.which == 13) save('section');">
+		</dd>
+
+        <dt>Comments</dt>
+		<dd>
+		    <dl>
+
+            <span id="new_comment" class="hidden">
+            <dt>New Comment</dt>
+            <dd>
+            <form>
+            <textarea name="comment" id="comment_field"></textarea>
+            <a onclick="post_comment({{ story.id }});">Post</a>
+            </form>
+            </dd>
+            </span>
+
+            <span id="story_comments">
+            {% include "backend/fragments/story_comments.html" %}
+            </span>
+
+            </dl>
+        </dd>
+        
+	</dl>		
+	</div>
+
+{% endblock %}
+

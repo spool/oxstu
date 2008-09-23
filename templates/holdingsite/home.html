@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load pdf %}
+
+{% block content %}
+    <div id="current-issue">
+
+        <!-- Current issue main PDF -->
+        {% if issue.main_download.display %}
+            <a href="{{ issue.main_download.get_file_url  }}">
+            <img id="frontpage" src="{{ issue.main_download.file|pdfthumbnail:"350x350" }}" alt="The Oxford Student Frontpage - {{ issue.main_dowload.oxdate  }}" class="printpic" />
+            </a>
+        {% endif %}
+        <!-- end current issue -->
+
+        {% if issue.downloads %}
+            <div id="print">
+                <dl> 
+                    <dt>Newest print edition <a href="http://www.adobe.com/products/acrobat/readstep2.html"><abbr>PDF</abbr></a>:</dt>
+                    <!-- looper for sections for this issue -->
+                    {% for download in issue.downloads %}
+                        {% if download.display %}
+                            <dd id="{{ download.section.slug }}" class="sections"><a href="{{ download.get_file_url  }}">{{ download.section.title  }}</a></dd>
+                        {% endif %}
+                    {% endfor  %}
+                    <!-- end looper -->
+                </dl>
+                <a href="/archive">Recent Issues <span id="arrows">&raquo;</span></a>
+            </div>
+        {% endif %}
+    </div>
+    {% include "archive-link.html" %}
+{% endblock %}

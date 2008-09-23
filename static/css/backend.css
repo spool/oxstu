@@ -1,0 +1,102 @@
+body  { 
+	font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif; 
+	color:#333; 
+	background:#fff; 
+	margin:0;
+	padding:0;
+	font-size:13px;
+}
+
+a:link, a:visited { 
+	text-decoration:none; 
+	color:#333;
+}
+
+a:hover { 
+	text-decoration:underline;
+}
+
+a img { 
+	border:none; 
+}
+
+table {
+	font-size:13px;
+	font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif; 
+	color:#333;
+}
+
+#sidebar {float:left; width:310px; padding-right:20px;}
+#main {margin-left:330px;}
+
+#header {background:#20201e; color:#ffc; overflow:hidden; }
+#header h1 { padding:0 10px; font-size:36px; margin:8px 0; color:#f4f379; }
+#user-tools {position:absolute; right:10px;  top:42px; font-size:12px; text-align:right; }
+#user-tools a:link, #user-tools a:visited { color:white; }
+#user-tools a:hover { text-decoration:underline; }
+
+#content { margin:20px auto; width:90%;}
+
+
+#messages {background:#fff890; padding:10px; border: 1px solid #aaa;}
+
+#footer{clear:both;}
+
+#messages h2 {margin-top:0px; font-size:14px;}
+
+#footer {font-size:8px;}
+
+#storyeditor{width:600px;}
+
+#story-edit label {display:block; margin-top:10px; font-weight:bold;}
+input, textarea {border:1px solid #aaa;}
+#story-edit .input {width:700px;}
+
+
+#storyinfo dt{font-weight:bold;}
+#storyinfo .editlink{float:right; font-weight:normal;}
+
+.hidden { display:none;}
+
+#storyinfo dd {margin-left:5px; margin-bottom:5px;}
+#returndashboard{font-size:15px;  padding-left:35px; margin-left:10px; background: url(/images/backend/back.png) no-repeat left top;}
+
+#panel{ border: solid 1px  #888; padding:0px 15px 5px; margin-top:10px;}
+#panel h3{margin-top:5px;}
+
+.storylet-info th { float:left;  }
+.storylet-info { font-size:12px; }
+.storylet-edit-link {
+	float:right;
+	margin-top: -25px;
+	padding-left: 28px;
+	background: url(file:///home/nick/code/oxstu/static/images/pencil.png)	no-repeat;}
+.storylet-bids {}
+
+.storylet-ready { 
+	width: 600px;
+	padding: 1px 15px 5px 15px; 
+	margin: 20px;
+	border-top: 1px  solid #aade87;
+	border-bottom: 1px solid #aade87;
+	background: #e5ffd5;
+}
+
+.storylet-beingwritten { 
+	width: 600px;
+	padding: 1px 15px 5px 15px; 
+	margin: 20px;
+	border-top: 1px  solid #ffdd55;
+	border-bottom: 1px solid #ffdd55;
+	background: #fff6d5;
+}
+
+.storylet-unassigned { 
+	width: 600px;
+	padding: 1px 15px 5px 15px; 
+	margin: 20px;
+	border-top: 1px  solid #ffaaaa;
+	border-bottom: 1px solid #ffaaaa;
+	background: #fff5f5;
+}
+

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load typogrify %}
+{% load byline %}
+{% load sidebar %}
+{% load oxstu_humanise %}
+
+{% block body_class %}generic-front front{% endblock %}
+
+{% block content %}
+    <div id="front-page">
+        
+        <div id="main-block">
+            <a href="/arts/listings/">
+                <h1>{{ section.title }}</h1>
+            </a>
+            
+            <div id="main-story" style="background-image:url(/widget/{{ main_story.published.thumbnail_widget.id }}/500/300/1/)">
+                <div class="meta">
+                    <a href="{{ main_story.get_absolute_url }}">
+                        <h2>{{ main_story.published.headline|typogrify|safe }} &raquo;</h2>
+                        <h3>{{ main_story.published.synopsis|typogrify|safe }}</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <dl id="side-stories">
+            {% for story in sidestories %}
+                <dt>
+                    <a href="{{ story.get_absolute_url }}">
+                        {{ story.get_headline }}
+                    </a>
+                </dt>
+                <dd><a href="{{ story.get_absolute_url }}">{{ story.published.synopsis|safe }}</a></dd>
+            {% endfor %}
+        </dl>
+        
+        <hr />
+        
+        <dl id="sub-stories">
+            {% for story in substories %}
+                <dt>
+                    <a href="{{ story.get_absolute_url }}">
+                    {% with story.published.thumbnail_widget as thumbnail %}
+                        {% if thumbnail %}
+                            <img src="/widget/{{ thumbnail.id }}/64/64/" class="thumbnail"/>
+                        {% endif %}
+                    {% endwith %}
+                        <h5>{{ story.get_headline }}</h5>
+                    </a>
+                </dt>
+                <dd><a href="{{ story.get_absolute_url }}">{{ story.published.synopsis|safe }}</a></dd>
+            {% endfor %}
+        </dl>
+        
+        <div class="features">
+            {% for feature in features %}
+                {{ feature }}
+            {% endfor %}
+        </div>
+        
+        <hr />
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "backend/base.html" %}
+{% load humanize %}
+
+{% block title %}
+Revision {{ storytext.revision }} of {{ story.outline_title }}
+{% endblock %}
+
+{% block content %}
+
+<p><a href="/admin/story/{{ story.id }}/revisions/">Back to revisions</a></p>
+<p>Modified on: {{ storytext.created|naturalday }}</p>
+<p>Modified by: {{ storytext.author.friendly_name }}</p>
+<p>Headline: {{ storytext.headline }}</p>
+<p>Synopsis: {{ storytext.synopsis }}</p>
+<p>Content: {{ storytext.text }}</p>
+
+{% endblock %}
