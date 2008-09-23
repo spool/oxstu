@@ -21,7 +21,9 @@ OXSTU_APPS = (
 
 INSTALLED_APPS = settings.INSTALLED_APPS + OXSTU_APPS
 
+# Uncomment/comment which one you want/don't want
 ROOT_URLCONF = 'pinax.urls'
+# ROOT_URLCONF = 'oxstu.urls'
 
 OXSTU_TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
